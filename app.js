@@ -421,7 +421,22 @@ document.querySelectorAll('.node').forEach(node => {
 window.onload = function() {
     updateFormation();
     updateSquad(); // Ensure the squad is correctly initialized
+    
+    var popup = document.getElementById("popupModal");
+    popup.style.display = "flex"; // Display the pop-up modal
+
+    // Add event listener for closing the modal
+    var closeButton = document.getElementById("closePopup");
+    closeButton.addEventListener("click", function() {
+        popup.style.display = "none"; // Hide the pop-up
+    });
 };
 
+document.getElementById("closePopup").onclick = function() {
+    var popup = document.getElementById("popupModal");
+    popup.style.display = "none"; // Hide the pop-up
+}
 // Add event listener to update squad when dropdown is changed
 document.getElementById('squad').addEventListener('change', updateSquad);
+
+

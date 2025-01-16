@@ -4,6 +4,7 @@ body {
     background-color: grey;
 }
 
+
 #colored-square {
     position: absolute;
     top: 365px;
@@ -34,6 +35,59 @@ body {
     opacity: 0.2;
 }
 
+/* Basic styles for the pop-up */
+.popup-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative; /* Needed to ensure the close button is placed relative to this content */
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+    z-index: 12;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+
 .field {
     position: relative;
     width: 100%;
@@ -47,7 +101,7 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    z-index: 10; 
+    z-index: 9; 
     color: white;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 16px; 
@@ -59,7 +113,7 @@ body {
     position: absolute;
     top: 10px;
     left: 1120px;
-    z-index: 10; 
+    z-index: 9; 
     color: white;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 16px; 
