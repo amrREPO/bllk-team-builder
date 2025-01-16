@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+}
+
+#colored-square {
+    position: absolute;
+    top: 365px;
+    right: 342px;
+    width: 483px;
+    height: 405px;
+    z-index: 1;
+    background-color: rgb(88, 99, 99); 
+}
+
+#colored2-square {
+    position: absolute;
+    top: 300px;
+    right: 342px;
+    width: 483px;
+    height: 65px;
+    z-index: 5;
+    background-color: rgb(77, 82, 82); 
+}
+
+#my-image {
+    position: absolute;
+    top: 305px;
+    right: 342px;
+    width: 483px;
+    height: 500px;
+    z-index: 6;
+    opacity: 0.2;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/Field.jpg');
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.formation-selection {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10; 
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px; 
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.squad-selection {
+    position: absolute;
+    top: 10px;
+    left: 1120px;
+    z-index: 10; 
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px; 
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.node {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    border: 2px solid #000;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.node .center-text {
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.node .player-name {
+    font-size: 15px;
+    margin-top: 75px;
+    color: aliceblue;
+    text-shadow: 1px 1px 1px black, -1px -1px 1px black, 1px -1px 1px black, -1px 1px 1px black;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.player-overall {
+    font-size: 50px;  /* Increase font size */
+    color: white;
+    position: absolute;
+    top: 550px;
+    right: 188px;
+    text-align: center;
+    text-wrap: wrap;
+    font-family: 'Bebas Neue', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Style for the overall number */
+.overall-number {
+    font-size: 50px; /* Larger font for the number */
+    font-weight: bold;
+}
+
+/* Style for the "OVR" text */
+.overall-text {
+    font-size: 20px; /* Smaller font for the OVR text */
+    color: white;
+    margin-top: 5px; /* Space between the number and OVR */
+}
+
+node.highlighted {
+    border: 3px solid red;  /* Red border to highlight the node */
+    background-color: rgba(93, 252, 250, 0.5); /* Light blue background for better visibility */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 95vh;
+    padding: 20px;
+    background-color: rgb(146, 156, 177);
+    border-left: 2px solid black;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.player-item {
+    padding: 8px;
+    margin: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.player-item.selected {
+    background-color: rgba(93, 252, 250, 0.5);
+}
+
+.node.highlighted {
+    border: 3px solid red;
+    background-color: rgba(93, 252, 250, 0.5);
+}
+
+.player-info {
+    position: absolute;
+    top: 0px;
+    right: 342px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    color: white;
+    z-index: 10;
+    display: none; /* Initially hidden */
+    width: 483px; /* Adjust the width for the container */
+    height: 500px; /* Set height based on your desired image size */
+}
+
+.player-info img {
+    width: 100%; /* Make the image take the full width of the container */
+    height: 100%; /* Make the image take the full height of the container */
+    object-fit: contain; /* Fill the container without distortion, cropping if necessary */
+    object-position: top; /* Show the top half of the image */
+}
+
+#player-image {
+    width: 100%; /* Make the image fill the container */
+    height: 60%; /* Set the height to the top 60% */
+    object-fit: cover; /* Ensure the image fills the space, cropping the bottom */
+    margin-bottom: 10px;
+}
+
+#player-name {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    margin-top: -10px; /* Space between the image and the name */
+    background-color: rgba(77, 82, 82, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
