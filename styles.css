@@ -35,16 +35,15 @@ body {
     opacity: 0.2;
 }
 
-/* Basic styles for the pop-up */
 .popup-modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 10; /* Sit on top */
+    z-index: 10;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.5); /* Black with transparency */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -57,7 +56,7 @@ body {
     width: 80%;
     max-width: 600px;
     text-align: center;
-    position: relative; /* Needed to ensure the close button is placed relative to this content */
+    position: relative;
 }
 
 h2 {
@@ -158,7 +157,7 @@ li {
 }
 
 .player-overall {
-    font-size: 50px;  /* Increase font size */
+    font-size: 50px;  
     color: white;
     position: absolute;
     top: 550px;
@@ -169,25 +168,23 @@ li {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Style for the overall number */
 .overall-number {
-    font-size: 50px; /* Larger font for the number */
+    font-size: 50px; 
     font-weight: bold;
 }
 
-/* Style for the "OVR" text */
 .overall-text {
-    font-size: 20px; /* Smaller font for the OVR text */
+    font-size: 20px;
     color: white;
-    margin-top: 5px; /* Space between the number and OVR */
+    margin-top: 5px;
 }
 
 node.highlighted {
-    border: 3px solid red;  /* Red border to highlight the node */
-    background-color: rgba(93, 252, 250, 0.5); /* Light blue background for better visibility */
+    border: 3px solid red;  
+    background-color: rgba(93, 252, 250, 0.5); 
 }
 
-/* Sidebar Styling */
+/* Sidebar */
 .sidebar {
     position: absolute;
     right: 0;
@@ -225,22 +222,22 @@ node.highlighted {
     font-family: 'Bebas Neue', sans-serif;
     color: white;
     z-index: 10;
-    display: none; /* Initially hidden */
-    width: 483px; /* Adjust the width for the container */
-    height: 500px; /* Set height based on your desired image size */
+    display: none; 
+    width: 483px; 
+    height: 500px; 
 }
 
 .player-info img {
-    width: 100%; /* Make the image take the full width of the container */
-    height: 100%; /* Make the image take the full height of the container */
-    object-fit: contain; /* Fill the container without distortion, cropping if necessary */
-    object-position: top; /* Show the top half of the image */
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    object-position: top; 
 }
 
 #player-image {
-    width: 100%; /* Make the image fill the container */
-    height: 60%; /* Set the height to the top 60% */
-    object-fit: cover; /* Ensure the image fills the space, cropping the bottom */
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
     margin-bottom: 10px;
 }
 
@@ -248,7 +245,7 @@ node.highlighted {
     font-size: 50px;
     font-weight: bold;
     color: white;
-    margin-top: -10px; /* Space between the image and the name */
+    margin-top: -10px;
     background-color: rgba(77, 82, 82, 0.5);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }

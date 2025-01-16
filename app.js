@@ -158,7 +158,7 @@ const formations = {
     ]
 };
 
-// Example array of player objects
+// Players: First, Last, Team, Overall
 const players = [
     // **Bastard Munchen:**
     { firstName: 'Yoichi', lastName: 'Isagi', team: 'Bastard Munchen', overall: 88 },
@@ -228,18 +228,18 @@ let assignedPlayers = []; // Track players who are assigned to nodes
 let selectedPlayer = null; // Track currently selected player in the sidebar
 let lastClickedNode = null; // Track the last clicked node for node-to-node swapping
 
-// Function to handle squad selection and update player list
+// Squad selection and update player list
 function updateSquad() {
-    const selectedSquad = document.getElementById("squad").value; // Get the selected squad
+    const selectedSquad = document.getElementById("squad").value; 
     const sidebar = document.getElementById('player-list');
-    sidebar.innerHTML = ''; // Clear the existing player list
+    sidebar.innerHTML = ''; 
 
     // Filter players based on the selected squad
     const filteredPlayers = players.filter(player => player.team === selectedSquad);
 
-    // Update the sidebar with players from the selected squad, excluding those who are assigned
+    // Update the sidebar with players from the selected squad, exclude assigned
     filteredPlayers.forEach(player => {
-        // Only add player if they're not already assigned
+        // Add player if they're not assigned
         if (!assignedPlayers.includes(player.lastName)) {
             const playerItem = document.createElement('div');
             playerItem.classList.add('player-item');
@@ -255,7 +255,7 @@ function updateSquad() {
                 selectedPlayer.classList.add('selected');
             });
 
-            // Hover functionality to show player image and name when hovering over sidebar item
+            // Hover functionality
             playerItem.addEventListener('mouseenter', function() {
                 showPlayerInfo(player);
             });
@@ -269,7 +269,7 @@ function updateSquad() {
     });
 }
 
-// Function to update the formation and player positions
+// Formation and player positions
 function updateFormation() {
     const selectedFormation = document.getElementById("formation").value;
     const formation = formations[selectedFormation];
@@ -283,17 +283,17 @@ function updateFormation() {
     }
 }
 
-// Function to handle node click and swap players
+// Node click and swap players
 function handleNodeClick(event) {
     const clickedNode = event.target.closest('.node');
     if (!clickedNode) return;
 
-    // If there was a previously clicked node, remove its highlight
+    // Remove node highlight
     if (lastClickedNode && lastClickedNode !== clickedNode) {
         lastClickedNode.classList.remove('highlighted');
     }
 
-    // Add a visual highlight to the clicked node
+    // Add highlight to clicked node
     clickedNode.classList.add('highlighted');
 
     // Get the player name text of the clicked node
@@ -301,7 +301,7 @@ function handleNodeClick(event) {
 
     // If a player is selected from the sidebar
     if (selectedPlayer) {
-        const player = JSON.parse(selectedPlayer.dataset.player);  // Retrieve the full player object
+        const player = JSON.parse(selectedPlayer.dataset.player);  // Retrieve full player object
 
         // If node is empty, assign the player
         if (playerName.textContent.trim() === "") {
@@ -309,10 +309,10 @@ function handleNodeClick(event) {
             assignedPlayers.push(player.lastName); // Add the player to the assigned list
             selectedPlayer.classList.remove('selected');
             selectedPlayer = null;
-            updateSquad(); // Update the sidebar after assigning a player
+            updateSquad(); 
             clickedNode.classList.remove('highlighted'); // Remove highlight after assignment
         } else {
-            // Swap logic if there's already a player in the node
+            // Swap if there's already a player in the node
             const currentNodePlayer = playerName.textContent;
             playerName.textContent = player.lastName;
 
@@ -320,7 +320,7 @@ function handleNodeClick(event) {
             assignedPlayers = assignedPlayers.filter(player => player !== currentNodePlayer); 
             assignedPlayers.push(player.lastName); // Add the newly assigned player to the list
 
-            // Now, remove the swapped-out player from the sidebar (if it's there)
+            // Remove the swapped-out player from the sidebar (if it's there)
             const sidebar = document.getElementById('player-list');
             const swappedPlayerItem = [...sidebar.children].find(item => {
                 return item.textContent.includes(currentNodePlayer); 
@@ -330,14 +330,15 @@ function handleNodeClick(event) {
                 swappedPlayerItem.remove();  // Remove the swapped-out player from the sidebar
             }
 
-            // Reset the selected player and update sidebar to reflect changes
+            // Reset the selected player and update sidebar
             selectedPlayer.classList.remove('selected');
             selectedPlayer = null;
 
             clickedNode.classList.remove('highlighted'); // Remove highlight after swap
         }
-        // After the swap, update sidebar and player hover info
-        updateSquad(); // Re-render the sidebar with the updated list of available players
+
+        // After swap, update sidebar and player hover info
+        updateSquad(); // Re-render the sidebar
     } else {
         // If no player is selected from the sidebar, enable node-to-node swapping
         if (!lastClickedNode) {
@@ -369,21 +370,20 @@ function handleNodeClick(event) {
 }
 
 // Function to show player info on hover
-// Function to show player info on hover
 function showPlayerInfo(player) {
     const playerImage = document.getElementById('player-image');
     const playerFullName = document.getElementById('player-name');
-    const playerOverall = document.createElement('div'); // Create a new element for the overall stat
+    const playerOverall = document.createElement('div'); // Create a new element for the overall
 
-    playerImage.src = `images/${player.lastName}.png`; // Assuming the image file is named after the player's last name
-    playerImage.style.display = 'block'; // Show the image
+    playerImage.src = `images/${player.lastName}.png`; // Image file should be named after the player's last name
+    playerImage.style.display = 'block'; // Show image
 
     playerFullName.textContent = `${player.firstName} ${player.lastName}`; // Set full name
     playerFullName.style.display = 'block'; // Show the name
 
-    // Add the overall stat below the player's name
+    // Append the overall stat below the player's name
     playerOverall.textContent = `${player.overall} OVR`;
-    playerOverall.classList.add('player-overall'); // Add the class for styling
+    playerOverall.classList.add('player-overall'); // Add the class styling
     playerFullName.parentNode.appendChild(playerOverall); // Append the overall stat
 
     // Show the player info section
@@ -403,7 +403,7 @@ function hidePlayerInfo() {
 }
 
 
-// Add event listeners to all nodes for swapping players
+// Add event listeners
 document.querySelectorAll('.node').forEach(node => {
     node.addEventListener('click', handleNodeClick);
     node.addEventListener('mouseenter', function() {
@@ -417,15 +417,15 @@ document.querySelectorAll('.node').forEach(node => {
     node.addEventListener('mouseleave', hidePlayerInfo);
 });
 
-// Initialize the page by setting up the formation and player sidebar
+// Initialize the page
 window.onload = function() {
     updateFormation();
-    updateSquad(); // Ensure the squad is correctly initialized
+    updateSquad(); 
     
     var popup = document.getElementById("popupModal");
     popup.style.display = "flex"; // Display the pop-up modal
 
-    // Add event listener for closing the modal
+    // Event listener for closing the modal
     var closeButton = document.getElementById("closePopup");
     closeButton.addEventListener("click", function() {
         popup.style.display = "none"; // Hide the pop-up
@@ -436,7 +436,7 @@ document.getElementById("closePopup").onclick = function() {
     var popup = document.getElementById("popupModal");
     popup.style.display = "none"; // Hide the pop-up
 }
-// Add event listener to update squad when dropdown is changed
+// Event listener to update squad when dropdown is changed
 document.getElementById('squad').addEventListener('change', updateSquad);
 
 
